@@ -5,9 +5,37 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\spr_placehold</sprite>
+    <sprite>sprites\spr_1stGear</sprite>
+    <sprite>sprites\spr_2ndGear</sprite>
+    <sprite>sprites\spr_3rdGear</sprite>
+    <sprite>sprites\spr_4thGear</sprite>
+    <sprite>sprites\spr_5thGear</sprite>
+    <sprite>sprites\spr_shiftplaceholder</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\obj_shifter</object>
+    <objects name="Pedals">
+      <object>objects\obj_parentPedal</object>
+      <object>objects\obj_brakePedal</object>
+      <object>objects\obj_clutchPedal</object>
+      <object>objects\obj_accelPedal</object>
+    </objects>
+    <objects name="Gears">
+      <object>objects\obj_parentGear</object>
+      <object>objects\obj_1stGear</object>
+      <object>objects\obj_2ndGear</object>
+      <object>objects\obj_3rdGear</object>
+      <object>objects\obj_4thGear</object>
+      <object>objects\obj_5thGear</object>
+    </objects>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\rm_gamemain</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
