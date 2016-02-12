@@ -25,12 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>minY = y - 200;
+            <string>minY = y - 200; //TODO need dynamic pedal play size
 var i = 0;
-repeat(5){
+repeat(3){
     instancePressed[i] = false;
     i+= 1;
 }
+pedalPlay = ystart - minY;
 </string>
           </argument>
         </arguments>
@@ -53,8 +54,36 @@ repeat(5){
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Listen for released action
+for (var i = 0; i &lt; 3; i+=1){
+    if (device_mouse_check_button_released(i, mb_left)) {
+        if (instancePressed[i]){ 
+            instancePressed[i] = false;
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Listen for pressed action 
-for (var i = 0; i &lt; 5; i+=1){
+for (var i = 0; i &lt; 3; i+=1){
     if (device_mouse_check_button_pressed(i, mb_left)) {
         if (device_mouse_x(i) &gt; bbox_left &amp;&amp; device_mouse_x(i) &lt; bbox_right
             &amp;&amp; device_mouse_y(i) &lt; bbox_bottom &amp;&amp; device_mouse_y(i) &gt; bbox_top){
@@ -83,9 +112,15 @@ for (var i = 0; i &lt; 5; i+=1){
           <argument>
             <kind>1</kind>
             <string>///Follow touch while pressed
-for (var i = 0; i &lt; 5; i+=1){
+for (var i = 0; i &lt; 3; i+=1){
     if (instancePressed[i]){
-        if (y &gt;= minY &amp;&amp; y &lt;= ystart){
+        //If touch has moved too far left or right of pedal, disable press 
+        if (device_mouse_x(i) &lt; bbox_left - sprite_width ||
+            device_mouse_x(i) &gt; bbox_right + sprite_width){
+            instancePressed[i] = false;
+        }
+        //Otherwise follow touch with pedal 
+        else{
             if (device_mouse_y(i) &gt; minY &amp;&amp; device_mouse_y(i) &lt;= ystart){
                 y = device_mouse_y(i);
             }else{
@@ -117,36 +152,8 @@ for (var i = 0; i &lt; 5; i+=1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Listen for released action
-for (var i = 0; i &lt; 5; i+=1){
-    if (device_mouse_check_button_released(i, mb_left)) {
-        if (instancePressed[i]){ 
-            instancePressed[i] = false;
-        }
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Return pedal to start position 
-for (var i = 0; i &lt; 5; i+= 1){
+for (var i = 0; i &lt; 3; i+= 1){
     if (!instancePressed[i] &amp;&amp; y &lt; ystart)
         vspeed = 25;
 }

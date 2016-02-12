@@ -16,7 +16,11 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_initGlobals.gml</script>
+  </scripts>
   <objects name="objects">
+    <object>objects\obj_control</object>
     <object>objects\obj_shifter</object>
     <objects name="Pedals">
       <object>objects\obj_parentPedal</object>
