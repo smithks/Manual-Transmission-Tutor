@@ -121,7 +121,8 @@ for (var i = 0; i &lt; 3; i+=1){
         }
         //Otherwise follow touch with pedal 
         else{
-            if (device_mouse_y(i) &gt; minY &amp;&amp; device_mouse_y(i) &lt;= ystart){
+            if (device_mouse_y(i) &gt; minY &amp;&amp; device_mouse_y(i) &lt;= ystart 
+                &amp;&amp; y &gt;= minY &amp;&amp; y &lt;= ystart){
                 y = device_mouse_y(i);
             }else{
                 if (device_mouse_y(i) &lt; minY)
@@ -153,10 +154,18 @@ for (var i = 0; i &lt; 3; i+=1){
           <argument>
             <kind>1</kind>
             <string>///Return pedal to start position 
+var resetPedal = false;
+var pedalPressed = false;
+//
 for (var i = 0; i &lt; 3; i+= 1){
-    if (!instancePressed[i] &amp;&amp; y &lt; ystart)
-        vspeed = 25;
+    if (instancePressed[i])
+        pedalPressed = true;
+    else if (!instancePressed[i] &amp;&amp; y &lt; ystart)
+        resetPedal = true;
 }
+
+if resetPedal &amp;&amp; !pedalPressed
+    vspeed = 25;
 
 if y &gt;= ystart{
     vspeed = 0;

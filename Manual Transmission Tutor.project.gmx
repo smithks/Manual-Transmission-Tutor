@@ -17,8 +17,12 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_initGlobals.gml</script>
+    <script>scripts\initGlobals.gml</script>
+    <script>scripts\updateRPM.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_arial32</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_control</object>
     <object>objects\obj_shifter</object>

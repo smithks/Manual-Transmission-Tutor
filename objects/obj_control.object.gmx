@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>9</kind>
-            <script>scr_initGlobals</script>
+            <script>initGlobals</script>
           </argument>
           <argument>
             <kind>0</kind>
@@ -67,11 +67,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(0,0,"##In Gear: " + string(global.inGear) + 
+            <string>draw_text(0,0,"In Gear: " + string(global.inGear) + 
               "#Current Gear: "+string(global.currGear) +
               "#Accelerator: "+string(global.accelerator) +
               "#Clutch: "+string(global.clutch) +
-              "#Brake: "+string(global.brake));
+              "#Brake: "+string(global.brake) +
+              "#RPM: "+string(global.RPM));
 </string>
           </argument>
         </arguments>
