@@ -13,6 +13,7 @@
     <sprite>sprites\spr_4thGear</sprite>
     <sprite>sprites\spr_5thGear</sprite>
     <sprite>sprites\spr_shiftplaceholder</sprite>
+    <sprite>sprites\spr_tachNeedle</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -26,6 +27,7 @@
   <objects name="objects">
     <object>objects\obj_control</object>
     <object>objects\obj_shifter</object>
+    <object>objects\obj_tachNeedle</object>
     <objects name="Pedals">
       <object>objects\obj_parentPedal</object>
       <object>objects\obj_brakePedal</object>

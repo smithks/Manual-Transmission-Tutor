@@ -161,7 +161,11 @@ for ( var i = 0; i &lt; 3; i+= 1){
         if ( (x &gt; minX-5 &amp;&amp; x &lt; minX+5) || 
              (x &gt; xstart-10 &amp;&amp; x &lt; xstart+10) || 
              (x &gt; maxX-5 &amp;&amp; x &lt; maxX+5) ){
-            if (device_mouse_y(i) &gt;= minY &amp;&amp; device_mouse_y(i) &lt;= maxY){
+            //No 6th gear, don't allow shifter to move there
+            if ((x &gt; maxX-5 &amp;&amp; x &lt; maxX+5) &amp;&amp; device_mouse_y(i) &gt; ystart){
+                y = ystart;
+            }
+            else if (device_mouse_y(i) &gt;= minY &amp;&amp; device_mouse_y(i) &lt;= maxY){
                 y = device_mouse_y(i);
             }else{
                 if (device_mouse_y(i) &lt; minY)
