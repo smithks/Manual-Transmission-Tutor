@@ -4,7 +4,25 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_0rpm</sound>
+    <sound>sound\snd_500rpm</sound>
+    <sound>sound\snd_1000rpm</sound>
+    <sound>sound\snd_1500rpm</sound>
+    <sound>sound\snd_2000rpm</sound>
+    <sound>sound\snd_2500rpm</sound>
+    <sound>sound\snd_3000rpm</sound>
+    <sound>sound\snd_3500rpm</sound>
+    <sound>sound\snd_4000rpm</sound>
+    <sound>sound\snd_4500rpm</sound>
+    <sound>sound\snd_5000rpm</sound>
+    <sound>sound\snd_5500rpm</sound>
+    <sound>sound\snd_6000rpm</sound>
+    <sound>sound\snd_6500rpm</sound>
+    <sound>sound\snd_7000rpm</sound>
+    <sound>sound\snd_7500rpm</sound>
+    <sound>sound\snd_8000rpm</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_placehold</sprite>
     <sprite>sprites\spr_1stGear</sprite>
@@ -20,6 +38,7 @@
   <scripts name="scripts">
     <script>scripts\initGlobals.gml</script>
     <script>scripts\updateRPM.gml</script>
+    <script>scripts\updateRPMAudio.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_arial32</font>
